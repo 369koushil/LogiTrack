@@ -86,6 +86,13 @@ app.get("/testget", async (req,res)=>{
 
 })
 
+app.get("/alive",(req,res)=>{
+  console.log("alive");
+  return res.status(200).json({
+    msg:"alive hited by corn-job"
+  })
+})
+
 // Here we are listening to the server
 app.listen(PORT, () => {
   console.log("I am live again");
