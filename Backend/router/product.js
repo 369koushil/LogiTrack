@@ -1,22 +1,22 @@
 const express = require("express");
 const app = express();
-const product = require("../controller/product");
+const Product = require("../controller/product");
 
 // Add Product
-app.post("/add", product.addProduct);
+app.post("/add", Product.addProduct);
 
 // Get All Products
-app.get("/get/:userId", product.getAllProducts);
+app.get("/get/:userId", Product.getAllProducts);
 
 // Delete Selected Product Item
-app.get("/delete/:id", product.deleteSelectedProduct);
+app.get("/delete/:id", Product.deleteSelectedProduct);
 
 // Update Selected Product
-app.post("/update", product.updateSelectedProduct);
+app.post("/update", Product.updateSelectedProduct);
 
 // Search Product
-app.get("/search", product.searchProduct);
+app.get("/search", Product.searchProduct);
 
-// http://localhost:4000/api/product/search?searchTerm=fa
+// http://localhost:4000/api/Product/search?searchTerm=fa
 
 module.exports = app;
