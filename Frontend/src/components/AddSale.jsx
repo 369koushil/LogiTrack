@@ -28,7 +28,7 @@ export default function AddSale({
 
   // POST Data
   const addSale = () => {
-    fetch(`${process.env.REACT_APP_API_END_POINT}sales/add`, {
+    fetch(`${process.env.REACT_APP_API_END_POINT}/sales/add`, {
       method: "POST",
       headers: {
         "Content-type": "application/json",
