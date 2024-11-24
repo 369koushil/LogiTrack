@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useContext } from "react";
 import AddStore from "../components/AddStore";
 import AuthContext from "../AuthContext";
-
+const URL=process.env.REACT_APP_API_END_POINT;
 function Store() {
   const [showModal, setShowModal] = useState(false);
   const [stores, setAllStores] = useState([]);
@@ -14,7 +14,7 @@ function Store() {
 
   // Fetching all stores data
   const fetchData = () => {
-    fetch(`${process.env.REACT_APP_API_END_POINT}/store/get/${authContext.user}`)
+    fetch(`${URL}/store/get/${authContext.user}`)
       .then((response) => response.json())
       .then((data) => {
         setAllStores(data);

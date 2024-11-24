@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import UploadImage from "../components/UploadImage";
-
+const URL=process.env.REACT_APP_API_END_POINT;
 function Register() {
   const [form, setForm] = useState({
     firstName: "",
@@ -21,7 +21,7 @@ function Register() {
 
   // Register User
   const registerUser = () => {
-    fetch(`${process.env.REACT_APP_API_END_POINT}/register`, {
+    fetch(`${URL}/register`, {
       method: "POST",
       headers: {
         "Content-type": "application/json",

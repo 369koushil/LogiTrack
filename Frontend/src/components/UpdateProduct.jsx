@@ -1,6 +1,7 @@
 import { Fragment, useRef, useState } from "react";
 import { Dialog, Transition } from "@headlessui/react";
 import { PlusIcon } from "@heroicons/react/24/outline";
+const URL=process.env.REACT_APP_API_END_POINT;
 
 export default function UpdateProduct({
   updateProductData,
@@ -22,7 +23,7 @@ export default function UpdateProduct({
   };
 
   const updateProduct = () => {
-    fetch(`${process.env.REACT_APP_API_END_POINT}/product/update`, {
+    fetch(`${URL}/product/update`, {
       method: "POST",
       headers: {
         "Content-type": "application/json",

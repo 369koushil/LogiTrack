@@ -1,6 +1,7 @@
 import { Fragment, useRef, useState } from "react";
 import { Dialog, Transition } from "@headlessui/react";
 import { PlusIcon } from "@heroicons/react/24/outline";
+const URL=process.env.REACT_APP_API_END_POINT;
 
 export default function AddSale({
   addSaleModalSetting,
@@ -28,7 +29,7 @@ export default function AddSale({
 
   // POST Data
   const addSale = () => {
-    fetch(`${process.env.REACT_APP_API_END_POINT}/sales/add`, {
+    fetch(`${URL}/sales/add`, {
       method: "POST",
       headers: {
         "Content-type": "application/json",

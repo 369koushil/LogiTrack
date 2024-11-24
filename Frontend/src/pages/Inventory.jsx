@@ -2,7 +2,7 @@ import React, { useState, useEffect, useContext } from "react";
 import AddProduct from "../components/AddProduct";
 import UpdateProduct from "../components/UpdateProduct";
 import AuthContext from "../AuthContext";
-
+const URL=process.env.REACT_APP_API_END_POINT;
 function Inventory() {
   const [showProductModal, setShowProductModal] = useState(false);
   const [showUpdateModal, setShowUpdateModal] = useState(false);
@@ -24,7 +24,7 @@ function Inventory() {
 
   // Fetching Data of All Products
   const fetchProductsData = () => {
-    fetch(`${process.env.REACT_APP_API_END_POINT}/product/get/${authContext.user}`)
+    fetch(`${URL}/product/get/${authContext.user}`)
       .then((response) => response.json())
       .then((data) => {
         setAllProducts(data);
@@ -34,7 +34,7 @@ function Inventory() {
 
   // Fetching Data of Search Products
   const fetchSearchData = () => {
-    fetch(`${process.env.REACT_APP_API_END_POINT}/product/search?searchTerm=${searchTerm}`)
+    fetch(`${URL}/product/search?searchTerm=${searchTerm}`)
       .then((response) => response.json())
       .then((data) => {
         setAllProducts(data);
@@ -44,7 +44,7 @@ function Inventory() {
 
   // Fetching all stores data
   const fetchSalesData = () => {
-    fetch(`${process.env.REACT_APP_API_END_POINT}/store/get/${authContext.user}`)
+    fetch(`${URL}/store/get/${authContext.user}`)
       .then((response) => response.json())
       .then((data) => {
         setAllStores(data);
@@ -67,8 +67,8 @@ function Inventory() {
   // Delete item
   const deleteItem = (id) => {
     console.log("Product ID: ", id);
-    console.log(`${process.env.REACT_APP_API_END_POINT}/product/delete/${id}`);
-    fetch(`${process.env.REACT_APP_API_END_POINT}/product/delete/${id}`)
+    console.log(`${URL}/product/delete/${id}`);
+    fetch(`${URL}/product/delete/${id}`)
       .then((response) => response.json())
       .then((data) => {
         setUpdatePage(!updatePage);

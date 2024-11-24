@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useContext } from "react";
 import AddSale from "../components/AddSale";
 import AuthContext from "../AuthContext";
-
+const URL=process.env.REACT_APP_API_END_POINT;
 function Sales() {
   const [showSaleModal, setShowSaleModal] = useState(false);
   const [sales, setAllSalesData] = useState([]);
@@ -19,7 +19,7 @@ function Sales() {
 
   // Fetching Data of All Sales
   const fetchSalesData = () => {
-    fetch(`${process.env.REACT_APP_API_END_POINT}/sales/get/${authContext.user}`)
+    fetch(`${URL}/sales/get/${authContext.user}`)
       .then((response) => response.json())
       .then((data) => {
         setAllSalesData(data);
@@ -29,7 +29,7 @@ function Sales() {
 
   // Fetching Data of All Products
   const fetchProductsData = () => {
-    fetch(`${process.env.REACT_APP_API_END_POINT}/product/get/${authContext.user}`)
+    fetch(`${URL}/product/get/${authContext.user}`)
       .then((response) => response.json())
       .then((data) => {
         setAllProducts(data);
@@ -39,7 +39,7 @@ function Sales() {
 
   // Fetching Data of All Stores
   const fetchStoresData = () => {
-    fetch(`${process.env.REACT_APP_API_END_POINT}/store/get/${authContext.user}`)
+    fetch(`${URL}/store/get/${authContext.user}`)
       .then((response) => response.json())
       .then((data) => {
         setAllStores(data);

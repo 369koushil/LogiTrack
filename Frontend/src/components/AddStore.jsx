@@ -3,6 +3,7 @@ import { Dialog, Transition } from "@headlessui/react";
 import { PlusIcon } from "@heroicons/react/24/outline";
 import UploadImage from "./UploadImage";
 import AuthContext from "../AuthContext";
+const URL=process.env.REACT_APP_API_END_POINT;
 
 
 export default function AddStore() {
@@ -23,7 +24,7 @@ export default function AddStore() {
   const addProduct = () => {
     console.log("Form data to send:", form); // Log form data before sending
 
-    fetch(`${process.env.REACT_APP_API_END_POINT}/store/add`, {
+    fetch(`${URL}/store/add`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

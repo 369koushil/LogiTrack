@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useContext } from "react";
 import AddPurchaseDetails from "../components/AddPurchaseDetails";
 import AuthContext from "../AuthContext";
-
+const URL=process.env.REACT_APP_API_END_POINT;
 function PurchaseDetails() {
   const [showPurchaseModal, setPurchaseModal] = useState(false);
   const [purchase, setAllPurchaseData] = useState([]);
@@ -17,7 +17,7 @@ function PurchaseDetails() {
 
   // Fetching Data of All Purchase items
   const fetchPurchaseData = () => {
-    fetch(`${process.env.REACT_APP_API_END_POINT}/purchase/get/${authContext.user}`)
+    fetch(`${URL}/purchase/get/${authContext.user}`)
       .then((response) => response.json())
       .then((data) => {
         setAllPurchaseData(data);
@@ -27,7 +27,7 @@ function PurchaseDetails() {
 
   // Fetching Data of All Products
   const fetchProductsData = () => {
-    fetch(`${process.env.REACT_APP_API_END_POINT}/product/get/${authContext.user}`)
+    fetch(`${URL}/product/get/${authContext.user}`)
       .then((response) => response.json())
       .then((data) => {
         setAllProducts(data);

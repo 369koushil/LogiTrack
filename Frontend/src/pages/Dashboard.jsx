@@ -5,7 +5,7 @@ import { Doughnut } from "react-chartjs-2";
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
 
 ChartJS.register(ArcElement, Tooltip, Legend);
-
+const URL=process.env.REACT_APP_API_END_POINT;
 function Dashboard() {
   const [saleAmount, setSaleAmount] = useState("");
   const [purchaseAmount, setPurchaseAmount] = useState("");
@@ -84,7 +84,7 @@ function Dashboard() {
   // Fetching total sales amount
   const fetchTotalSaleAmount = () => {
     fetch(
-     `${process.env.REACT_APP_API_END_POINT}/sales/get/${authContext.user}/totalsaleamount`
+     `${URL}/sales/get/${authContext.user}/totalsaleamount`
     )
       .then((response) => response.json())
       .then((datas) => setSaleAmount(datas.totalSaleAmount));
@@ -93,7 +93,7 @@ function Dashboard() {
   // Fetching total purchase amount
   const fetchTotalPurchaseAmount = () => {
     fetch(
-      `${process.env.REACT_APP_API_END_POINT}/purchase/get/${authContext.user}/totalpurchaseamount`
+      `${URL}/purchase/get/${authContext.user}/totalpurchaseamount`
     )
       .then((response) => response.json())
       .then((datas) => setPurchaseAmount(datas.totalPurchaseAmount));
@@ -101,14 +101,14 @@ function Dashboard() {
 
   // Fetching all stores data
   const fetchStoresData = () => {
-    fetch(`${process.env.REACT_APP_API_END_POINT}/store/get/${authContext.user}`)
+    fetch(`${URL}/store/get/${authContext.user}`)
       .then((response) => response.json())
       .then((datas) => setStores(datas));
   };
 
   // Fetching Data of All Products
   const fetchProductsData = () => {
-    fetch(`${process.env.REACT_APP_API_END_POINT}/product/get/${authContext.user}`)
+    fetch(`${URL}/product/get/${authContext.user}`)
       .then((response) => response.json())
       .then((datas) => setProducts(datas))
       .catch((err) => console.log(err));
@@ -116,7 +116,7 @@ function Dashboard() {
 
   // Fetching Monthly Sales
   const fetchMonthlySalesData = () => {
-    fetch(`${process.env.REACT_APP_API_END_POINT}/sales/getmonthly`)
+    fetch(`${URL}/sales/getmonthly`)
       .then((response) => response.json())
       .then((datas) => updateChartData(datas.salesAmount))
       .catch((err) => console.log(err));
