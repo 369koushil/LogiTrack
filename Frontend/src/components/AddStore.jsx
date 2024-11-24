@@ -22,7 +22,7 @@ export default function AddStore() {
   const addProduct = () => {
     console.log("Form data to send:", form); // Log form data before sending
 
-    fetch(`${process.env.REACT_APP_API_END_POINT}store/add`, {
+    fetch(`${process.env.REACT_APP_API_END_POINT}/store/add`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
