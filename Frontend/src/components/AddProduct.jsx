@@ -2,7 +2,7 @@ import { Fragment, useContext, useRef, useState } from "react";
 import { Dialog, Transition } from "@headlessui/react";
 import { PlusIcon } from "@heroicons/react/24/outline";
 import AuthContext from "../AuthContext";
-
+const URL=process.env.REACT_APP_API_END_POINT;
 export default function AddProduct({
   addProductModalSetting,
   handlePageUpdate,
@@ -23,7 +23,7 @@ export default function AddProduct({
   };
 
   const addProduct = () => {
-    fetch(`${process.env.REACT_APP_API_END_POINT}/product/add`, {
+    fetch(`${URL}/product/add`, {
       method: "POST",
       headers: {
         "Content-type": "application/json",
