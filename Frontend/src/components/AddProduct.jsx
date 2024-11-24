@@ -23,7 +23,7 @@ export default function AddProduct({
   };
 
   const addProduct = () => {
-    fetch(`${process.env.REACT_APP_API_END_POINT}/product/add', {
+    fetch(`${process.env.REACT_APP_API_END_POINT}/product/add`, {
       method: "POST",
       headers: {
         "Content-type": "application/json",
