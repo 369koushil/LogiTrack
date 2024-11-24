@@ -3,6 +3,7 @@ import { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import AuthContext from "../AuthContext";
 
+const URL=process.env.REACT_APP_API_END_POINT;
 function Login() {
   const [form, setForm] = useState({
     email: "",
@@ -19,7 +20,7 @@ function Login() {
 
   const authCheck = () => {
     setTimeout(() => {
-      fetch(`${process.env.REACT_APP_API_END_POINT}/login`)
+      fetch(`${URL}/login`)
         .then((response) => response.json())
         .then((data) => {
           alert("Successfully Login");
