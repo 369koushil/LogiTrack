@@ -4,6 +4,7 @@ import { PlusIcon } from "@heroicons/react/24/outline";
 import UploadImage from "./UploadImage";
 import AuthContext from "../AuthContext";
 
+
 export default function AddStore() {
   const authContext = useContext(AuthContext);
 
